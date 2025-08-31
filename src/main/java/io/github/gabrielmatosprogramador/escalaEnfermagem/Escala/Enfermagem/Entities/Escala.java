@@ -1,5 +1,6 @@
 package io.github.gabrielmatosprogramador.escalaEnfermagem.Escala.Enfermagem.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,10 +25,12 @@ public class Escala {
 
     @Column(nullable = false)
     @OneToMany(mappedBy = "Profissional", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonBackReference
     private List<Object> id_profissional = new ArrayList<Object>();
 
     @Column(nullable = false)
     @OneToMany(mappedBy = "Sitio", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonBackReference
     private List<Object> id_sitio = new ArrayList<Object>();
 
     @Column(nullable = false)
