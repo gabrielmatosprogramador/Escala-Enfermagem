@@ -1,5 +1,6 @@
 package io.github.gabrielmatosprogramador.escalaEnfermagem.Escala.Enfermagem.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,6 +23,11 @@ public class Sitio {
 
     @Column(nullable = false)
     private String descricao;
+
+    @ManyToOne
+    @JoinColumn(name = "id_escala")
+    @JsonBackReference
+    private Escala escala;
 
     private Boolean ativo;
 
