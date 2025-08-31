@@ -27,7 +27,7 @@ public class Escala {
     private List<Object> id_profissional = new ArrayList<Object>();
 
     @Column(nullable = false)
-    @OneToMany(mappedBy = "Profissional", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "Sitio", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Object> id_sitio = new ArrayList<Object>();
 
     @Column(nullable = false)
