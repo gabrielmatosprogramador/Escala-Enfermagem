@@ -26,12 +26,12 @@ public class Escala {
     @Column(nullable = false)
     @OneToMany(mappedBy = "Profissional", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonBackReference
-    private List<Object> id_profissional = new ArrayList<Object>();
+    private List<Profissional> id_profissional = new ArrayList<Profissional>();
 
     @Column(nullable = false)
     @OneToMany(mappedBy = "Sitio", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonBackReference
-    private List<Object> id_sitio = new ArrayList<Object>();
+    private List<Sitio> id_sitio = new ArrayList<Sitio>();
 
     @Column(nullable = false)
     private LocalDateTime data;
