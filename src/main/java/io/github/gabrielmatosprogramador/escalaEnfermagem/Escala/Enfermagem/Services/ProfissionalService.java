@@ -35,9 +35,7 @@ public class ProfissionalService {
     }
 
     public Profissional buscarProfissionalPorId (Long profissionalId){
-        Profissional profissional = profissionalRepository.findById(profissionalId)
-                .orElseThrow(() -> new RuntimeException("Profissional nao encontrado"));
-        return profissional;
+        return profissionalRepository.findById(profissionalId).orElseThrow(() -> new RuntimeException("Profissional nao encontrado"));
     }
 
     public Profissional atualizarNomeCargoProfissional(Long id, ProfissionalDTO profissionalAtualizado){
@@ -45,6 +43,7 @@ public class ProfissionalService {
         Profissional profissional = buscarProfissionalPorId(id);
         profissional.setNome_completo(profissionalAtualizado.getNome());
         profissional.setCargo(profissionalAtualizado.getCargo());
+        profissional.setAtivo(true);
 
         return profissionalRepository.save(profissional);
     }
