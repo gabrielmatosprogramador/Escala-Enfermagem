@@ -1,11 +1,14 @@
 package io.github.gabrielmatosprogramador.escalaEnfermagem.Escala.Enfermagem.Entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -21,14 +24,13 @@ public class Sitio {
     @Column(nullable = false)
     private String nome;
 
-    @Column(nullable = false)
+    @Column
     private String descricao;
 
-    @ManyToOne
-    @JoinColumn(name = "id_escala")
-    @JsonBackReference
-    private Escala escala;
+
+    @OneToMany(mappedBy = "sitio", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Escala> escalas = new ArrayList<>();
 
     private Boolean ativo;
-
 }

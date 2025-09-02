@@ -5,17 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 public class EscalaDTO {
-
-    private List<ProfissionalResponseDTO> profissionais;
-    private List<SitioResponseDTO> sitios;
-    private LocalDateTime data;
-
+    private Long profissionalId;
+    private Long sitioId;
+    private LocalDate data;
 }
