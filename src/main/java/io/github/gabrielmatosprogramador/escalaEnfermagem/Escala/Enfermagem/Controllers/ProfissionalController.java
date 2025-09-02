@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/profissionais")
+@CrossOrigin(origins = "*")
 public class ProfissionalController {
 
     @Autowired
@@ -30,12 +31,12 @@ public class ProfissionalController {
         return profissionalService.atualizarNomeCargoProfissional(id, dto);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{id}/desativar")
     public void desativarProfissional (@PathVariable Long id){
         profissionalService.desativarProfissional(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{id}/ativar")
     public void ativarProfissional (@PathVariable Long id){
         profissionalService.ativarProfissional(id);
     }

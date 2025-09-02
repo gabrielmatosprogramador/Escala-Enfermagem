@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/sitios")
+@CrossOrigin(origins = "*")
 public class SitioController {
 
     @Autowired
@@ -25,17 +26,17 @@ public class SitioController {
         return sitioService.todosOsSitios();
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{id}/update")
     public Sitio atualizarProfissional(@PathVariable Long id, SitioDTO dto){
         return sitioService.atualizarSitio(id, dto);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{id}/desativar")
     public void desativarProfissional (@PathVariable Long id){
         sitioService.desativarSitio(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{id}/ativar")
     public void ativarProfissional (@PathVariable Long id){
         sitioService.ativarSitio(id);
     }

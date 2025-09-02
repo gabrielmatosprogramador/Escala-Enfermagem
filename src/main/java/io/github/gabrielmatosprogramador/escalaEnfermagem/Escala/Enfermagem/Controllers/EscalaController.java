@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/escalas")
+@CrossOrigin(origins = "*")
 public class EscalaController {
 
     @Autowired
@@ -21,7 +22,7 @@ public class EscalaController {
         return escalaService.salvarOuAtualizarEscala(dto);
     }
 
-    @GetMapping("/{profissionalId}")
+    @GetMapping("/{id}")
     public ResponseEntity<List<EscalaResponseDTO>> buscarProfissionalPorData(@PathVariable Long id, @RequestParam int ano, @RequestParam int mes){
         List<EscalaResponseDTO> escalas = escalaService.buscarEscalaPorProfissionalEMes(id, ano, mes);
 
